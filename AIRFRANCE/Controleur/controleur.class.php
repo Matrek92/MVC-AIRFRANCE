@@ -43,29 +43,29 @@
  			$lesPilotes = $this->unModele->selectAllPilotes();
  			return $lesPilotes;
  		}
- 		public function insertPilote($tab)
+ 		public function insertPilotes($tab)
  		{
  			//controler les données avant de les envoyer au modele 
- 			$this->unModele->insertPilote($tab);
+ 			$this->unModele->insertPilotes($tab);
  		}
  		public function selectLikePilotes($mot)
  		{
- 			$lesAvions = $this->unModele->selectLikePilotes($mot);
+ 			$lesPilotes = $this->unModele->selectLikePilotes($mot);
  			return $lesPilotes;
  		}
- 		public function deletePilote($idpilote)
+ 		public function deletePilotes($idpilote)
  		{
- 			$this->unModele->deletePilote($idpilote);
+ 			$this->unModele->deletePilotes($idpilote);
  		}
- 		public function updatePilote($tab)
+ 		public function updatePilotes($tab)
  		{
- 			$this->unModele->updatePilote($tab);
+ 			$this->unModele->updatePilotes($tab);
  		}
- 		public function selectWherePilote($idpilote)
+ 		public function selectWherePilotes($idpilote)
  		{
- 			return $this->unModele->selectWherePilote($idpilote);
- 		}
+ 			return $this->unModele->selectWherePilotes($idpilote);
 
+ 		}
 
 
  	}
