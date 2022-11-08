@@ -1,17 +1,17 @@
-<h3>Ajout d'un professeur</h3>
+<h3>Ajout d'un pilote</h3>
 <form method="post">
 	<table>
 		<tr>
-			<td>Nom du professeur</td>
+			<td>Nom du pilote</td>
 			<td><input type="text" name="nom"></td>
 		</tr>
 		<tr>
-			<td>Prenom du professeur</td>
+			<td>Prenom du pilote</td>
 			<td><input type="text" name="prenom"></td>
 		</tr>
 		<tr>
-			<td>Diplôme du professeur</td>
-			<td><input type="text" name="diplome"></td>
+			<td>anciennete du pilote</td>
+			<td><input type="text" name="anciennete"></td>
 		</tr>
 		<tr>
 			<td><input type="reset" name="Annuler" value="Annuler"></td>
