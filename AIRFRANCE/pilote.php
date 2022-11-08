@@ -2,12 +2,16 @@
 
 <?php 
 
+$lePilote = null;
+
 	if(isset($_GET['action']) && isset($_GET['idpilote'])){
 		$action = $_GET['action'];
 		$idpilote = $_GET['idpilote'];
 		switch($action){
 			case "sup" : $unControleur->deletePilotes($idpilote) ; break;
-			case "edit" : break;
+			case "edit" : $lePilote = $unControleur->selectWherePilotes($idpilote);
+				
+				break;
 		}
 	}
 
