@@ -34,26 +34,41 @@
  		}
 
 
- 		// Professeurs //
+ 		// Pilotes //
 
 
- 		public function selectAllProfs(){
- 			$lesProfs = $this->unModele->selectAllProfs();
- 			return $lesProfs;
+ 			require_once ("modele/modele.class.php");
+ 	class Controleur
+ 	{
+ 		private $unModele;
+ 		public function __construct(){
+ 			$this->unModele = new Modele();
  		}
- 		public function insertProfs($tab)
+ 		public function selectAllClasses(){
+ 			$lesAvions = $this->unModele->selectAllClasses();
+ 			return $lesAvions;
+ 		}
+ 		public function insertClasse($tab)
  		{
  			//controler les données avant de les envoyer au modele 
- 			$this->unModele->insertProfs($tab);
+ 			$this->unModele->insertClasse($tab);
  		}
- 		public function selectLikeProfs($mot)
+ 		public function selectLikeClasses($mot)
  		{
- 			$lesProfs = $this->unModele->selectLikeProfs($mot);
- 			return $lesProfs;
+ 			$lesAvions = $this->unModele->selectLikeClasses($mot);
+ 			return $lesAvions;
  		}
- 		public function deleteProf($idprofesseur)
+ 		public function deleteClasse($idavion)
  		{
- 			$this->unModele->deleteProf($idprofesseur);
+ 			$this->unModele->deleteClasse($idavion);
+ 		}
+ 		public function updateClasse($tab)
+ 		{
+ 			$this->unModele->updateClasse($tab);
+ 		}
+ 		public function selectWherePilote($idpilote)
+ 		{
+ 			return $this->unModele->selectWherePilote($idpilote);
  		}
 
 
