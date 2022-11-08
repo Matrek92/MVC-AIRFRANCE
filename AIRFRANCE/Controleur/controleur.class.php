@@ -37,34 +37,29 @@
  		// Pilotes //
 
 
- 			require_once ("modele/modele.class.php");
- 	class Controleur
- 	{
- 		private $unModele;
- 		public function __construct(){
- 			$this->unModele = new Modele();
+ 		
+ 
+ 		public function selectAllPilotes(){
+ 			$lesPilotes = $this->unModele->selectAllPilotes();
+ 			return $lesPilotes;
  		}
- 		public function selectAllClasses(){
- 			$lesAvions = $this->unModele->selectAllClasses();
- 			return $lesAvions;
- 		}
- 		public function insertClasse($tab)
+ 		public function insertPilote($tab)
  		{
  			//controler les données avant de les envoyer au modele 
- 			$this->unModele->insertClasse($tab);
+ 			$this->unModele->insertPilote($tab);
  		}
- 		public function selectLikeClasses($mot)
+ 		public function selectLikePilotes($mot)
  		{
- 			$lesAvions = $this->unModele->selectLikeClasses($mot);
- 			return $lesAvions;
+ 			$lesAvions = $this->unModele->selectLikePilotes($mot);
+ 			return $lesPilotes;
  		}
- 		public function deleteClasse($idavion)
+ 		public function deletePilote($idpilote)
  		{
- 			$this->unModele->deleteClasse($idavion);
+ 			$this->unModele->deletePilote($idpilote);
  		}
- 		public function updateClasse($tab)
+ 		public function updatePilote($tab)
  		{
- 			$this->unModele->updateClasse($tab);
+ 			$this->unModele->updatePilote($tab);
  		}
  		public function selectWherePilote($idpilote)
  		{
