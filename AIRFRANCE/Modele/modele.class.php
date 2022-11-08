@@ -162,54 +162,54 @@ public function selectAllPilotes()
 			
 			//AEROPORT//
 			
-public function selectAllPilotes()
+/* public function selectAllAeroports()
 {
 	if($this->unPDO != null){
-		$requete = "select * from pilote ; ";
+		$requete = "select * from aeroport ; ";
 		//preparation de la requete
 		$select= $this->unPDO->prepare($requete);
 		$select->execute();
 		//extraction des classes
-		$lesPilotes = $select->fetchAll();	
-		return $lesPilotes;
+		$lesAeroports = $select->fetchAll();	
+		return $lesAeroports;
 	}
 	else
 		return null;
 }
-	public function insertPilotes($tab)
+	public function insertAeroports($tab)
 	{
 		if($this->unPDO != null){
-			$requete="insert into pilote values(not null, :nom, :prenom, :anciennete); ";
+			$requete="insert into aeroport values(not null, :nom, :prenom, :anciennete); ";
 			$donnees = array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete']);
 			$insert = $this->unPDO->prepare($requete);
 			$insert->execute($donnees);
 		}
 	}
-	public function selectLikePilotes($mot)
+	public function selectLikeAeroports($mot)
 	{
 		if($this->unPDO != null){
 			$requete = "select * from pilote where nom like :mot or prenom like :mot or anciennete like :mot ;";
 			$donnees = array(":mot"=>"%".$mot."%");
 			$select = $this->unPDO->prepare($requete);
 			$select->execute($donnees);
-			$lesPilotes = $select->fetchAll();
-			return $lesPilotes;
+			$lesAeroports = $select->fetchAll();
+			return $lesAeroports;
 		}else{
 			return null;
 		}
 	}
 
-		public function deletePilotes($idpilote)
+		public function deleteAeroports($idaeroport)
 		{
 			if($this->unPDO != null){
 				$requete="delete from pilote where idpilote = :idpilote	;";
-				$donnees = array(":idpilote"=>$idpilote);
+				$donnees = array(":idaeroport"=>$idaeroport);
 				$delete = $this->unPDO->prepare($requete);
 				$delete->execute($donnees);
 			}
 		}
 
-		public function updatePilotes($tab){
+		public function updateAeroports($tab){
 			if($this->unPDO != null){
 				$requete = "update pilote set nom=:nom, prenom=:prenom, anciennete=:anciennete where idpilote=:idpilote;";
 				$donnees=array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete'], ":idpilote"=>$tab['idpilote']);
@@ -231,6 +231,6 @@ public function selectAllPilotes()
 
 			
 			
-			
+	*/		
 	}
 ?>
