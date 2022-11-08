@@ -99,17 +99,17 @@ public function selectAllPilotes()
 		$select= $this->unPDO->prepare($requete);
 		$select->execute();
 		//extraction des classes
-		$lesAvions = $select->fetchAll();	
+		$lesPilotes = $select->fetchAll();	
 		return $lesPilotes;
 	}
 	else
 		return null;
 }
-	public function insertPilote($tab)
+	public function insertPilotes($tab)
 	{
 		if($this->unPDO != null){
-			$requete="insert into avion values(null, :nom, :modele, :capacite); ";
-			$donnees = array(":nom"=>$tab['nom'], ":modele"=>$tab['modele'], ":capacite"=>$tab['capacite']);
+			$requete="insert into pilote values(not null, :nom, :prenom, :anciennete); ";
+			$donnees = array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete']);
 			$insert = $this->unPDO->prepare($requete);
 			$insert->execute($donnees);
 		}
@@ -117,38 +117,38 @@ public function selectAllPilotes()
 	public function selectLikePilotes($mot)
 	{
 		if($this->unPDO != null){
-			$requete = "select * from avion where nom like :mot or modele like :mot or capacite like :mot ;";
+			$requete = "select * from pilote where nom like :mot or prenom like :mot or anciennete like :mot ;";
 			$donnees = array(":mot"=>"%".$mot."%");
 			$select = $this->unPDO->prepare($requete);
 			$select->execute($donnees);
-			$lesAvions = $select->fetchAll();
+			$lesPilotes = $select->fetchAll();
 			return $lesPilotes;
 		}else{
 			return null;
 		}
 	}
 
-		public function deletePilote($idpilote)
+		public function deletePilotes($idpilote)
 		{
 			if($this->unPDO != null){
-				$requete="delete from avion where idavion = :idavion	;";
-				$donnees = array(":idavion"=>$idavion);
+				$requete="delete from pilote where idpilote = :idpilote	;";
+				$donnees = array(":idpilote"=>$idpilote);
 				$delete = $this->unPDO->prepare($requete);
 				$delete->execute($donnees);
 			}
 		}
 
-		public function updatePilote($tab){
+		public function updatePilotes($tab){
 			if($this->unPDO != null){
-				$requete = "update avion set nom=:nom, modele=:modele, capacite=:capacite where idavion=:idavion;";
-				$donnees=array(":nom"=>$tab['nom'], ":modele"=>$tab['modele'], ":capacite"=>$tab['capacite'], ":idavion"=>$tab['idavion']);
+				$requete = "update pilote set nom=:nom, prenom=:prenom, anciennete=:anciennete where idpilote=:idpilote;";
+				$donnees=array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete'], ":idpilote"=>$tab['idpilote']);
 				$update=$this->unPDO->prepare($requete);
 				$update->execute($donnees);
 			}
 		}
-		public function selectWherePilote($idpilote){
+		public function selectWherePilotes($idpilote){
 			if($this->unPDO != null){
-				$requete="select * from avion where idpilote=:idpilote;";
+				$requete="select * from pilote where idpilote=:idpilote;";
 				$donnees=array(":idpilote"=>$idpilote);
 				$select= $this->unPDO->prepare($requete);
 				$select->execute($donnees);
