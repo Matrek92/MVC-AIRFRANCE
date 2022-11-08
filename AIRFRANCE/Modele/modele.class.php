@@ -162,7 +162,7 @@ public function selectAllPilotes()
 			
 			//AEROPORT//
 			
-/* public function selectAllAeroports()
+ /* public function selectAllAeroports()
 {
 	if($this->unPDO != null){
 		$requete = "select * from aeroport ; ";
@@ -202,7 +202,7 @@ public function selectAllPilotes()
 		public function deleteAeroports($idaeroport)
 		{
 			if($this->unPDO != null){
-				$requete="delete from pilote where idpilote = :idpilote	;";
+				$requete="delete from pilote where idaeroport = :idaeroport	;";
 				$donnees = array(":idaeroport"=>$idaeroport);
 				$delete = $this->unPDO->prepare($requete);
 				$delete->execute($donnees);
@@ -217,20 +217,20 @@ public function selectAllPilotes()
 				$update->execute($donnees);
 			}
 		}
-		public function selectWherePilotes($idpilote){
+		public function selectWhereAeroports($idaeroport){
 			if($this->unPDO != null){
 				$requete="select * from pilote where idpilote=:idpilote;";
-				$donnees=array(":idpilote"=>$idpilote);
+				$donnees=array(":idaeroport"=>$idaeroport);
 				$select= $this->unPDO->prepare($requete);
 				$select->execute($donnees);
-				$unPilote = $select->fetch();	//un seul resultat
-				return $unPilote;
+				$unAeroport = $select->fetch();	//un seul resultat
+				return $unAeroport;
 		}else{
 			return null;
 		}			
 
 			
+		*/	
 			
-	*/		
 	}
 ?>
