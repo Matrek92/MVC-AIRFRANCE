@@ -66,6 +66,39 @@
  			return $this->unModele->selectWherePilotes($idpilote);
 
  		}
+ 		//	Aeroport //
+
+
+
+ 		public function selectAllAeroports(){
+ 			$lesAeroports = $this->unModele->selectAllAeroports();
+ 			return $lesAeroports;
+ 		}
+ 		public function insertAeroports($tab)
+ 		{
+ 			//controler les données avant de les envoyer au modele 
+ 			$this->unModele->insertAeroports($tab);
+ 		}
+ 		public function selectLikeAeroports($mot)
+ 		{
+ 			$lesAeroports = $this->unModele->selectLikeAeroports($mot);
+ 			return $lesAeroports;
+ 		}
+ 		public function deleteAeroports($idpilote)
+ 		{
+ 			$this->unModele->deleteAeroports($idaeroport);
+ 		}
+ 		public function updateAeroports($tab)
+ 		{
+ 			$this->unModele->updateAeroports($tab);
+ 		}
+ 		public function selectWhereAeroports($idaeroport)
+ 		{
+ 			return $this->unModele->selectWhereAeroports($idaeroport);
+
+ 		}
+
+
 
 
  	}
