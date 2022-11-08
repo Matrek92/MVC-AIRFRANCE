@@ -157,5 +157,80 @@ public function selectAllPilotes()
 		}else{
 			return null;
 		}
+			
+			
+			
+			//AEROPORT//
+			
+public function selectAllPilotes()
+{
+	if($this->unPDO != null){
+		$requete = "select * from pilote ; ";
+		//preparation de la requete
+		$select= $this->unPDO->prepare($requete);
+		$select->execute();
+		//extraction des classes
+		$lesPilotes = $select->fetchAll();	
+		return $lesPilotes;
+	}
+	else
+		return null;
+}
+	public function insertPilotes($tab)
+	{
+		if($this->unPDO != null){
+			$requete="insert into pilote values(not null, :nom, :prenom, :anciennete); ";
+			$donnees = array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete']);
+			$insert = $this->unPDO->prepare($requete);
+			$insert->execute($donnees);
+		}
+	}
+	public function selectLikePilotes($mot)
+	{
+		if($this->unPDO != null){
+			$requete = "select * from pilote where nom like :mot or prenom like :mot or anciennete like :mot ;";
+			$donnees = array(":mot"=>"%".$mot."%");
+			$select = $this->unPDO->prepare($requete);
+			$select->execute($donnees);
+			$lesPilotes = $select->fetchAll();
+			return $lesPilotes;
+		}else{
+			return null;
+		}
+	}
+
+		public function deletePilotes($idpilote)
+		{
+			if($this->unPDO != null){
+				$requete="delete from pilote where idpilote = :idpilote	;";
+				$donnees = array(":idpilote"=>$idpilote);
+				$delete = $this->unPDO->prepare($requete);
+				$delete->execute($donnees);
+			}
+		}
+
+		public function updatePilotes($tab){
+			if($this->unPDO != null){
+				$requete = "update pilote set nom=:nom, prenom=:prenom, anciennete=:anciennete where idpilote=:idpilote;";
+				$donnees=array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete'], ":idpilote"=>$tab['idpilote']);
+				$update=$this->unPDO->prepare($requete);
+				$update->execute($donnees);
+			}
+		}
+		public function selectWherePilotes($idpilote){
+			if($this->unPDO != null){
+				$requete="select * from pilote where idpilote=:idpilote;";
+				$donnees=array(":idpilote"=>$idpilote);
+				$select= $this->unPDO->prepare($requete);
+				$select->execute($donnees);
+				$unPilote = $select->fetch();	//un seul resultat
+				return $unPilote;
+		}else{
+			return null;
+		}			
+
+			
+			
+			
 	}
 ?>
