@@ -6,27 +6,27 @@
 		$action = $_GET['action'];
 		$idpilote = $_GET['idpilote'];
 		switch($action){
-			case "sup" : $unControleur->deleteProf($idpilote) ; break;
+			case "sup" : $unControleur->deletePilotes($idpilote) ; break;
 			case "edit" : break;
 		}
 	}
 
 
 
-	require_once("vue/vue_insert_professeur.php");
+	require_once("vue/vue_insert_pilote.php");
 	if(isset($_POST['Valider']))
 	{
-		$unControleur->insertProfs($_POST);
+		$unControleur->insertPilotes($_POST);
 	}
 
 	if(isset($_POST['Filtrer']))
 	{
 		$mot = $_POST['mot'];
-		$lesProfs = $unControleur->selectLikeProfs($mot);
+		$lesPilotes = $unControleur->selectLikePilotes($mot);
 	}else{
-		$lesProfs = $unControleur->selectAllProfs();
+		$lesPilotes = $unControleur->selectAllPilotes();
 	}
 
-	require_once("vue/vue_les_professeur.php");
+	require_once("vue/vue_les_pilotes.php");
 
 ?>
