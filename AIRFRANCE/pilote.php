@@ -1,15 +1,15 @@
-<h2>Gestion des pilotes</h2>
+<h2>Gestion des aeroports</h2>
 
 <?php 
 
-$lePilote = null;
+$laeroport = null;
 
-	if(isset($_GET['action']) && isset($_GET['idpilote'])){
+	if(isset($_GET['action']) && isset($_GET['idaeroport'])){
 		$action = $_GET['action'];
-		$idpilote = $_GET['idpilote'];
+		$idaeroport = $_GET['idaeroport'];
 		switch($action){
-			case "sup" : $unControleur->deletePilotes($idpilote) ; break;
-			case "edit" : $lePilote = $unControleur->selectWherePilotes($idpilote);
+			case "sup" : $unControleur->deleteAeroports($idaeroport) ; break;
+			case "edit" : $laeroport = $unControleur->selectWhereAeroports($idaeroport);
 				
 				break;
 		}
@@ -17,20 +17,20 @@ $lePilote = null;
 
 
 
-	require_once("vue/vue_insert_pilote.php");
+	require_once("vue/vue_insert_aeroport.php");
 	if(isset($_POST['Valider']))
 	{
-		$unControleur->insertPilotes($_POST);
+		$unControleur->insertAeroports($_POST);
 	}
 
 	if(isset($_POST['Filtrer']))
 	{
 		$mot = $_POST['mot'];
-		$lesPilotes = $unControleur->selectLikePilotes($mot);
+		$lesAeroports = $unControleur->selectLikeAeroports($mot);
 	}else{
-		$lesPilotes = $unControleur->selectAllPilotes();
+		$lesAeroports = $unControleur->selectAllAeroports();
 	}
 
-	require_once("vue/vue_les_pilotes.php");
+	require_once("vue/vue_les_aeroports.php");
 
 ?>
