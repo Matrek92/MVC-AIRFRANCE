@@ -158,11 +158,12 @@ public function selectAllPilotes()
 			return null;
 		}
 			
+		}	
 			
 			
 			//AEROPORT//
 			
- /* public function selectAllAeroports()
+ public function selectAllAeroports()
 {
 	if($this->unPDO != null){
 		$requete = "select * from aeroport ; ";
@@ -179,8 +180,8 @@ public function selectAllPilotes()
 	public function insertAeroports($tab)
 	{
 		if($this->unPDO != null){
-			$requete="insert into aeroport values(not null, :nom, :prenom, :anciennete); ";
-			$donnees = array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete']);
+			$requete="insert into aeroport values(not null, :nom, :pays, :ville); ";
+			$donnees = array(":nom"=>$tab['nom'], ":pays"=>$tab['pays'], ":ville"=>$tab['ville']);
 			$insert = $this->unPDO->prepare($requete);
 			$insert->execute($donnees);
 		}
@@ -188,7 +189,7 @@ public function selectAllPilotes()
 	public function selectLikeAeroports($mot)
 	{
 		if($this->unPDO != null){
-			$requete = "select * from pilote where nom like :mot or prenom like :mot or anciennete like :mot ;";
+			$requete = "select * from aeroport where nom like :mot or pays like :mot or ville like :mot ;";
 			$donnees = array(":mot"=>"%".$mot."%");
 			$select = $this->unPDO->prepare($requete);
 			$select->execute($donnees);
@@ -202,7 +203,7 @@ public function selectAllPilotes()
 		public function deleteAeroports($idaeroport)
 		{
 			if($this->unPDO != null){
-				$requete="delete from pilote where idaeroport = :idaeroport	;";
+				$requete="delete from aeroport where idaeroport = :idaeroport	;";
 				$donnees = array(":idaeroport"=>$idaeroport);
 				$delete = $this->unPDO->prepare($requete);
 				$delete->execute($donnees);
@@ -211,15 +212,15 @@ public function selectAllPilotes()
 
 		public function updateAeroports($tab){
 			if($this->unPDO != null){
-				$requete = "update pilote set nom=:nom, prenom=:prenom, anciennete=:anciennete where idpilote=:idpilote;";
-				$donnees=array(":nom"=>$tab['nom'], ":prenom"=>$tab['prenom'], ":anciennete"=>$tab['anciennete'], ":idpilote"=>$tab['idpilote']);
+				$requete = "update aeroport set nom=:nom, pays=:pays, ville=:ville where idaeroport=:idaeroport;";
+				$donnees=array(":nom"=>$tab['nom'], ":pays"=>$tab['pays'], ":ville"=>$tab['ville'], ":idaeroport"=>$tab['idaeroport']);
 				$update=$this->unPDO->prepare($requete);
 				$update->execute($donnees);
 			}
 		}
 		public function selectWhereAeroports($idaeroport){
 			if($this->unPDO != null){
-				$requete="select * from pilote where idpilote=:idpilote;";
+				$requete="select * from aeroport where idaeroport=:idaeroport;";
 				$donnees=array(":idaeroport"=>$idaeroport);
 				$select= $this->unPDO->prepare($requete);
 				$select->execute($donnees);
@@ -227,10 +228,12 @@ public function selectAllPilotes()
 				return $unAeroport;
 		}else{
 			return null;
-		}			
+		}
+			
+		}
 
 			
-		*/	
+			
 			
 	}
 ?>
