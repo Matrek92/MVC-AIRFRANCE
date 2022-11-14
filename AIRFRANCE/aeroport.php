@@ -1,8 +1,9 @@
 <h2>Gestion des aeroports</h2>
 
 <?php 
-
-$laeroport = null;
+if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
+{
+	$laeroport = null;
 
 	if(isset($_GET['action']) && isset($_GET['idaeroport'])){
 		$action = $_GET['action'];
@@ -14,7 +15,7 @@ $laeroport = null;
 				break;
 		}
 	}
-
+}
 
 
 	require_once("vue/vue_insert_aeroport.php");
@@ -22,7 +23,11 @@ $laeroport = null;
 	{
 		$unControleur->insertAeroports($_POST);
 	}
-
+	if(isset($_POST['Modifier']))
+	{
+		$unControleur->updateAeroports($_POST);
+		header("Location: index.php?page=4");
+	}
 	if(isset($_POST['Filtrer']))
 	{
 		$mot = $_POST['mot'];
@@ -30,6 +35,7 @@ $laeroport = null;
 	}else{
 		$lesAeroports = $unControleur->selectAllAeroports();
 	}
+
 
 	require_once("vue/vue_les_aeroports.php");
 

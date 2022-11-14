@@ -1,6 +1,8 @@
 <h2>Gestion des pilotes</h2>
 
 <?php 
+if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
+	{
 
 $lePilote = null;
 
@@ -15,14 +17,18 @@ $lePilote = null;
 		}
 	}
 
-
+}
 
 	require_once("vue/vue_insert_pilote.php");
 	if(isset($_POST['Valider']))
 	{
 		$unControleur->insertPilotes($_POST);
 	}
-
+	if(isset($_POST['Modifier']))
+	{
+		$unControleur->updatePilotes($_POST);
+		header("Location: index.php?page=3");
+	}
 	if(isset($_POST['Filtrer']))
 	{
 		$mot = $_POST['mot'];
@@ -30,6 +36,7 @@ $lePilote = null;
 	}else{
 		$lesPilotes = $unControleur->selectAllPilotes();
 	}
+
 
 	require_once("vue/vue_les_pilotes.php");
 

@@ -7,13 +7,23 @@
 		</tr>
 		<tr>
 			<td>Pays de l'aeroport</td>
-			<td><input type="text" name="prenom"
+			<td><input type="text" name="pays"
 				value="<?= ($laeroport !=null)?$laeroport['pays']:'' ?>"></td>
 		</tr>
 		<tr>
-			<td>ville de l'aeroport</td>
+			<td>Ville de l'aeroport</td>
 			<td><input type="text" name="ville"
 				value="<?= ($laeroport !=null)?$laeroport['ville']:'' ?>"></td>
+		</tr>
+		<tr>
+			<td>Avion</td>
+			<td><input type="text" name="idavion"
+				value="<?= ($laeroport !=null)?$laeroport['idavion']:'' ?>"></td>
+		</tr>
+		<tr>
+			<td>Vol</td>
+			<td><input type="text" name="idvol"
+				value="<?= ($laeroport !=null)?$laeroport['idvol']:'' ?>"></td>
 		</tr>
 		<tr>
 			<td><input type="reset" name="Annuler" value="Annuler"></td>
@@ -28,4 +38,3 @@
 	</table>
 	
 </form>
-

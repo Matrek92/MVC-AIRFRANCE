@@ -12,6 +12,12 @@
 				<td> Nom </td>
 				<td>Prenom</td>
 				<td>Anciennete</td>
+				<?php 
+				if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
+				{
+					echo "<td>Opérations </td>";
+				}
+				?>
 			</tr>
 		
 		<?php
@@ -22,10 +28,12 @@
 			echo"<td>".$unPilote['nom']."</td>";
 			echo"<td>".$unPilote['prenom']."</td>";
 			echo"<td>".$unPilote['anciennete']."</td>";
+			if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
+	{
 			echo"<td>
 				<a href='index.php?page=3&action=sup&idpilote=".$unPilote['idpilote']."'><img src='images/supp.png' height='40' width='40'></a>
 
-				<a href='index.php?page=2&action=edit&idpilote=".$unPilote['idpilote']."'><img src='images/edit.png' height='40' width='40'></a>
+				<a href='index.php?page=3&action=edit&idpilote=".$unPilote['idpilote']."'><img src='images/edit.png' height='40' width='40'></a>
 				</td>
 
 			";
@@ -35,5 +43,6 @@
 
 			echo "</tr>";
 		}
+	}
 		?>
 		</table>

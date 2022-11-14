@@ -12,6 +12,14 @@
 				<td> Nom </td>
 				<td>Pays</td>
 				<td>Ville</td>
+				<td>Avion </td>
+				<td>Vol</td>
+				<?php 
+				if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
+				{
+					echo "<td>Opérations </td>";
+				}
+				?>
 			</tr>
 		
 		<?php
@@ -22,12 +30,14 @@
 			echo"<td>".$unAeroport['nom']."</td>";
 			echo"<td>".$unAeroport['pays']."</td>";
 			echo"<td>".$unAeroport['ville']."</td>";
+			echo"<td>".$unAeroport['idavion']."</td>";
+			echo"<td>".$unAeroport['idvol']."</td>";
+			if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
+	{
 			echo"<td>
-				<a href='index.php?page=3&action=sup&idaeroport=".$unAeroport['idaeroport']."'><img src='images/supp.png' height='40' width='40'></a>
-
-				<a href='index.php?page=2&action=edit&idaeroport=".$unAeroport['idaeroport']."'><img src='images/edit.png' height='40' width='40'></a>
+				<a href='index.php?page=4&action=sup&idaeroport=".$unAeroport['idaeroport']."'><img src='images/supp.png' height='40' width='40'></a>
+				<a href='index.php?page=4&action=edit&idaeroport=".$unAeroport['idaeroport']."'><img src='images/edit.png' height='40' width='40'></a>
 				</td>
-
 			";
 
 
@@ -35,6 +45,6 @@
 
 			echo "</tr>";
 		}
+	}
 		?>
 		</table>
-

@@ -6,40 +6,46 @@
  		public function __construct(){
  			$this->unModele = new Modele();
  		}
- 		public function selectAllClasses(){
- 			$lesAvions = $this->unModele->selectAllClasses();
+
+ 							//AVIONS\\
+
+ 		public function selectAllAvions(){
+ 			$lesAvions = $this->unModele->selectAllAvions();
  			return $lesAvions;
  		}
- 		public function insertClasse($tab)
+ 		public function insertAvions($tab)
  		{
  			//controler les données avant de les envoyer au modele 
- 			$this->unModele->insertClasse($tab);
+ 			$this->unModele->insertAvions($tab);
  		}
- 		public function selectLikeClasses($mot)
+ 		public function selectLikeAvions($mot)
  		{
- 			$lesAvions = $this->unModele->selectLikeClasses($mot);
+ 			$lesAvions = $this->unModele->selectLikeAvions($mot);
  			return $lesAvions;
  		}
- 		public function deleteClasse($idavion)
+ 		public function deleteAvions($idavion)
  		{
- 			$this->unModele->deleteClasse($idavion);
+ 			$this->unModele->deleteAvions($idavion);
  		}
- 		public function updateClasse($tab)
+ 		public function updateAvions($tab)
  		{
- 			$this->unModele->updateClasse($tab);
+ 			$this->unModele->updateAvions($tab);
  		}
- 		public function selectWhereClasse($idavion)
+ 		public function selectWhereAvions($idavion)
  		{
- 			return $this->unModele->selectWhereClasse($idavion);
+ 			return $this->unModele->selectWhereAvions($idavion);
+ 		}
+ 		public function verifConnexion ($email, $mdp){
+ 			//controler les email / mdp
+ 			$unUser = $this->unModele->verifConnexion($email, $mdp);
+ 			return $unUser;
  		}
 
 
- 		// Pilotes //
-
-
- 		
+									// Pilotes //
+		
  
- 		public function selectAllPilotes(){
+  		public function selectAllPilotes(){
  			$lesPilotes = $this->unModele->selectAllPilotes();
  			return $lesPilotes;
  		}
@@ -66,6 +72,40 @@
  			return $this->unModele->selectWherePilotes($idpilote);
 
  		}
+
+
+
+
+ 							//vol\\
+
+		public function selectAllVols(){
+ 			$lesVols = $this->unModele->selectAllVols();
+ 			return $lesVols;
+ 		}
+ 		public function insertVols($tab)
+ 		{
+ 			//controler les données avant de les envoyer au modele 
+ 			$this->unModele->insertVols($tab);
+ 		}
+ 		public function selectLikeVols($mot)
+ 		{
+ 			$lesVols = $this->unModele->selectLikeVols($mot);
+ 			return $lesVols;
+ 		}
+ 		public function deleteVols($idvol)
+ 		{
+ 			$this->unModele->deleteVols($idvol);
+ 		}
+ 		public function updateVols($tab)
+ 		{
+ 			$this->unModele->updateVols($tab);
+ 		}
+ 		public function selectWhereVols($idvol)
+ 		{
+ 			return $this->unModele->selectWhereVols($idvol);
+ 		}
+
+
  		//	Aeroport //
 
 
@@ -84,7 +124,7 @@
  			$lesAeroports = $this->unModele->selectLikeAeroports($mot);
  			return $lesAeroports;
  		}
- 		public function deleteAeroports($idpilote)
+ 		public function deleteAeroports($idaeroport)
  		{
  			$this->unModele->deleteAeroports($idaeroport);
  		}
@@ -97,7 +137,7 @@
  			return $this->unModele->selectWhereAeroports($idaeroport);
 
  		}
-
+ 		
 
 
 

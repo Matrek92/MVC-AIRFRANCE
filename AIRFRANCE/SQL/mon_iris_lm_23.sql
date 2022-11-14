@@ -14,7 +14,6 @@ use airfrance;
 		nom varchar(50),
 		paysDepart varchar(50),
 		paysArrive varchar(50),
-		idavion int(3) not null,
 		primary key(idvol),
 		foreign key(idavion) references avion(idavion)
 		);
@@ -28,7 +27,7 @@ use airfrance;
 	create table aeroport(
 		idaeroport int(3) not null auto_increment,
 		nom varchar(50),
-		pays int(3),
+		pays varchar(50),
 		ville varchar(30),
 		idavion int(3) not null,
 		idvol int(3) not null,
@@ -51,3 +50,16 @@ use airfrance;
 	insert into aeroport values
 		(null, "Orly", "France", "Paris", 1, 1),
 		(null, "Charles de Gaulle", "France", "Paris",1, 2);
+
+	create table user(
+		iduser int (3) not null auto_increment,
+		nom varchar(30),
+		prenom varchar(30),
+		email varchar(100),
+		mdp varchar(100),
+		role enum("admin", "user"),
+		primary key(iduser));
+
+	insert into user values 
+	(null, "Vallentin", "Quentin", "a@gmail.com", "123", "admin"),
+	(null, "Prince", "Clara", "b@gmail.com", "456", "user");
