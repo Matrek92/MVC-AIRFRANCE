@@ -20,7 +20,8 @@
 				break;
 			}
 		}
-	}
+	
+	
 
 	
 
@@ -35,6 +36,7 @@
 			$unControleur->updateAvions($_POST);
 			header("Location: index.php?page=1");
 		}
+	}
 
 		if(isset($_POST['Filtrer']))
 		{

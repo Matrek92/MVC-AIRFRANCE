@@ -19,7 +19,7 @@
 			break;
 		}
 	}
-}
+
 	
 
 	require_once("vue/vue_insert_vol.php");
@@ -33,6 +33,7 @@
 		$unControleur->updateVols($_POST);
 		header("Location: index.php?page=2");
 	}
+}
 
 	if(isset($_POST['Filtrer']))
 	{

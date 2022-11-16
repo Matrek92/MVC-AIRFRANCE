@@ -17,7 +17,7 @@ $lePilote = null;
 		}
 	}
 
-}
+
 
 	require_once("vue/vue_insert_pilote.php");
 	if(isset($_POST['Valider']))
@@ -29,6 +29,7 @@ $lePilote = null;
 		$unControleur->updatePilotes($_POST);
 		header("Location: index.php?page=3");
 	}
+}
 	if(isset($_POST['Filtrer']))
 	{
 		$mot = $_POST['mot'];

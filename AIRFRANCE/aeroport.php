@@ -15,7 +15,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
 				break;
 		}
 	}
-}
+
 
 
 	require_once("vue/vue_insert_aeroport.php");
@@ -28,6 +28,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=='admin')
 		$unControleur->updateAeroports($_POST);
 		header("Location: index.php?page=4");
 	}
+}
 	if(isset($_POST['Filtrer']))
 	{
 		$mot = $_POST['mot'];
